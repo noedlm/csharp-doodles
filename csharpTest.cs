@@ -24,6 +24,8 @@ namespace testSpace {
 		public int CompareTo(Picture pic) {
 			if (pic == null)
 				return 1;
+			else if (this.order == pic.order)
+				return this.name.CompareTo(pic.name);
 			else
 				return this.order.CompareTo(pic.order);
 		}

@@ -28,7 +28,7 @@ namespace testSpace {
 				return this.order.CompareTo(pic.order);
 		}
 
-		public override ToString() {
+		public override string ToString() {
 			return name = " (" + width + "x" + height + " - " + photographer;
 		}
 

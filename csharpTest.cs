@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace testSpace {
-	public class Picture : IComparable {
+	public class Picture : IComparable<Picture> {
 		
 		public int width {get; set;}
 		public int height {get; set;}
@@ -20,6 +20,17 @@ namespace testSpace {
 			name = n;
 			photographer = p;
 		} 
+
+		public Picture CompareTo(Picture pic) {
+			if (pic == null)
+				return 1;
+			else
+				return this.order.CompareTo(pic.order);
+		}
+
+		public override ToString() {
+			return name = " (" + width + "x" + height + " - " + photographer;
+		}
 
 	}
 
@@ -43,11 +54,14 @@ namespace testSpace {
 			height = 56;
 			order = 2;
 			name = "breakfast";
+			photographer = "Noe";
 		});
 
 		listOfPictures.Sort();
 
-		Console.WriteLine(listOfPictures.)
+		foreach (Picture pic in listOfPictures) {
+			Console.WriteLine(pic.ToString());
+		}
 
 	}
 }

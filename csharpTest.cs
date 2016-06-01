@@ -21,7 +21,7 @@ namespace testSpace {
 			photographer = p;
 		} 
 
-		public Picture CompareTo(Picture pic) {
+		public int CompareTo(Picture pic) {
 			if (pic == null)
 				return 1;
 			else

@@ -1,11 +1,11 @@
 ﻿using System;
 
 namespace doodles {
-    class BubbleSort
+    class BubbleSortClass
     {
         public int[] randomsArray { get; set; }
 
-        public BubbleSort()
+        public BubbleSortClass()
         {
             Random randomnumber = new Random();
             randomsArray = new int[100];
@@ -18,27 +18,28 @@ namespace doodles {
 
     public class MainClass {
         static void Main() {
-            //BubbleSort bubble = new BubbleSort();
-
-            //Console.WriteLine(bubble.randomsArray[0]);
-            //bool isFangs = vampireNumber(10, 11);
-            //Console.WriteLine("Are they fangs? " + isFangs.ToString());
-            //foreach (int bubba in bubble.randomsArray)
-            //{
-            //    Console.WriteLine(bubba.ToString());
-            //}
-
             int[] nums = randomGenerator();
             Console.WriteLine(nums.Length);
-            for(int i = 0; i < nums.Length - 1; i++ ) {
-                for(int j = i + 1; j < nums.Length - 1; j++) {
-                    if(nums[i] > nums[j]) {
+
+            foreach (int num in nums) {
+                Console.WriteLine("Before sort: " + num);
+            }
+
+            bubbleSort(nums);
+            foreach (int num in nums) {
+                Console.WriteLine("After sort: " + num);
+            }
+        }
+
+        public static void bubbleSort(int[] nums) {
+            for (int i = 0; i < nums.Length - 1; i++) {
+                for (int j = i + 1; j < nums.Length - 1; j++) {
+                    if (nums[i] > nums[j]) {
                         nums[i] += nums[j];
                         nums[j] = nums[i] - nums[j];
                         nums[i] = nums[i] - nums[j];
                     }
                 }
-                Console.WriteLine(nums[i]);
             }
         }
 

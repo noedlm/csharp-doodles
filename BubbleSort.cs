@@ -50,13 +50,22 @@ namespace doodles {
         public static bool vampireNumber(long x, long y) {
             string result = (x * y).ToString();
             string fangs = x.ToString() + y.ToString();
+            int fangsSum = 0;
+            int resultSum = 0;
             Console.WriteLine(fangs);
 
-            //foreach(string s in result) {
-            //    if (result.Split(s).Length - 1 != fangs.Split(s).Length - 1) {
-            //        return false;
-            //    }
-            //}
+            //maybe use an ordered stack where each number is an array. and we start removing elements from the result stack if a number from fang is found.
+
+            if (!result.Length.Equals(fangs.Length)) { return false; }
+            foreach (string r in result) { resultSum += r; }
+            foreach (string f in fangs) { fangsSum += f; }
+            if (!resultSum.Equals(fangsSum)) { return false; }
+
+            foreach (string s in result) {
+                if (result.Split(s).Length - 1 != fangs.Split(s).Length - 1) {
+                    return false;
+                }
+            }
 
             return true;
         }

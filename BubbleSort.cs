@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace doodles {
     class BubbleSortClass
@@ -18,17 +19,25 @@ namespace doodles {
 
     public class MainClass {
         static void Main() {
-            int[] nums = randomGenerator();
-            Console.WriteLine(nums.Length);
+            /*********bubblesort*********/
+            //int[] nums = randomGenerator();
+            //foreach (int num in nums) {
+            //    Console.WriteLine("Before sort: " + num);
+            //}
+            //bubbleSort(nums);
+            //foreach (int num in nums) {
+            //    Console.WriteLine("After sort: " + num);
+            //}
+            /****************************/
 
-            foreach (int num in nums) {
-                Console.WriteLine("Before sort: " + num);
-            }
+            /*********bubblesort*********/
+            bool fang = vampireNumber(6, 21);
+            Console.WriteLine(fang);
 
-            bubbleSort(nums);
-            foreach (int num in nums) {
-                Console.WriteLine("After sort: " + num);
-            }
+            fang = vampireNumber(8, 21);
+            Console.WriteLine(fang);
+
+            /****************************/
         }
 
         public static void bubbleSort(int[] nums) {
@@ -50,23 +59,18 @@ namespace doodles {
         public static bool vampireNumber(long x, long y) {
             string result = (x * y).ToString();
             string fangs = x.ToString() + y.ToString();
-            int fangsSum = 0;
-            int resultSum = 0;
-            Console.WriteLine(fangs);
 
-            //maybe use an ordered stack where each number is an array. and we start removing elements from the result stack if a number from fang is found.
+            if (x < 0 && y < 0) { return false; }
+            foreach (char f in fangs) {
+                if (result.Length == 0) { return false; }
 
-            if (!result.Length.Equals(fangs.Length)) { return false; }
-            foreach (string r in result) { resultSum += r; }
-            foreach (string f in fangs) { fangsSum += f; }
-            if (!resultSum.Equals(fangsSum)) { return false; }
-
-            foreach (string s in result) {
-                if (result.Split(s).Length - 1 != fangs.Split(s).Length - 1) {
+                if (result.Contains(f.ToString())) {
+                    int remove = result.LastIndexOf(f);
+                    result = result.Remove(remove, 1);
+                } else {
                     return false;
                 }
             }
-
             return true;
         }
 

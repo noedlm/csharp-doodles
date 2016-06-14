@@ -20,24 +20,24 @@ namespace doodles {
     public class MainClass {
         static void Main() {
             /*********bubblesort*********/
-            //int[] nums = randomGenerator();
-            //foreach (int num in nums) {
-            //    Console.WriteLine("Before sort: " + num);
-            //}
-            //bubbleSort(nums);
-            //foreach (int num in nums) {
-            //    Console.WriteLine("After sort: " + num);
-            //}
+            int[] nums = randomGenerator();
+            foreach (int num in nums) {
+                Console.WriteLine("Before sort: " + num);
+            }
+            bubbleSort(nums);
+            foreach (int num in nums) {
+                Console.WriteLine("After sort: " + num);
+            }
             /****************************/
 
-            /*********bubblesort*********/
+            /*********vampire numbers*********/
             bool fang = vampireNumber(6, 21);
             Console.WriteLine(fang);
 
             fang = vampireNumber(8, 21);
             Console.WriteLine(fang);
 
-            /****************************/
+            /*********************************/
         }
 
         public static void bubbleSort(int[] nums) {
@@ -81,7 +81,6 @@ namespace doodles {
             for(int i = 0; i < 100; i++) {
                 numbers[i] = rand.Next(0, 500);
             }
-
             return numbers;
         }
     }

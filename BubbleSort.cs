@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace doodles {
     class BubbleSortClass
@@ -20,24 +22,26 @@ namespace doodles {
     public class MainClass {
         static void Main() {
             /*********bubblesort*********/
-            int[] nums = randomGenerator();
-            foreach (int num in nums) {
-                Console.WriteLine("Before sort: " + num);
-            }
-            bubbleSort(nums);
-            foreach (int num in nums) {
-                Console.WriteLine("After sort: " + num);
-            }
-            /****************************/
+            //int[] nums = randomGenerator();
+            //foreach (int num in nums) {
+            //    Console.WriteLine("Before sort: " + num);
+            //}
+            //bubbleSort(nums);
+            //foreach (int num in nums) {
+            //    Console.WriteLine("After sort: " + num);
+            //}
+            ///****************************/
 
-            /*********vampire numbers*********/
-            bool fang = vampireNumber(6, 21);
-            Console.WriteLine(fang);
+            ///*********vampire numbers*********/
+            //bool fang = vampireNumber(6, 21);
+            //Console.WriteLine(fang);
 
-            fang = vampireNumber(8, 21);
-            Console.WriteLine(fang);
+            //fang = vampireNumber(8, 21);
+            //Console.WriteLine(fang);
 
             /*********************************/
+
+            Console.WriteLine(Shortcut("hello"));
         }
 
         public static void bubbleSort(int[] nums) {
@@ -72,6 +76,18 @@ namespace doodles {
                 }
             }
             return true;
+        }
+
+        public static string Shortcut (string input) {
+            List<char> vowels = new List<char> { 'a', 'e', 'i', 'o', 'u', 'y' };
+            Console.WriteLine(input[(input.Length + 1) / 2].ToString());
+            foreach (char s in input) {
+                Console.WriteLine(vowels.Contains(s));
+                if(vowels.Contains(s)) {
+                    input = input.Remove(input.IndexOf(s), 1);
+                }
+            }
+            return input;
         }
 
         public static int[] randomGenerator() {
